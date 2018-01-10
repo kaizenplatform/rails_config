@@ -23,7 +23,7 @@ module RailsConfig
           if ::Rails.env.development?
             initializer :rails_config_reload_on_development do
               ActionController::Base.class_eval do
-                prepend_before_filter { ::RailsConfig.reload! }
+                prepend_before_action { ::RailsConfig.reload! }
               end
             end
           end
